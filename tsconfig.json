@@ -1,0 +1,34 @@
+{
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "*": ["types/*"] },
+    "target": "es6",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "stripInternal": true,
+    "pretty": true,
+    "declaration": true,
+    "outDir": "dist/",
+    "rootDir": "src/",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": false
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "test",
+    "scripts",
+    "docs",
+    "example"
+  ]
+}
