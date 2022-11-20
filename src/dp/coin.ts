@@ -65,15 +65,15 @@ class CoinChange extends Comparator {
           continue;
         }
 
-        console.info('memo 下标 %d - (coins[%d]: %d) = %d', i, j, coins[j], memo[i - coins[j]] + 1);
-        console.info('当目标金额 i = %d 时， 至少需要 %d 枚金币可以凑出', i, memo[i - coins[j]] + 1);
+        // console.info('memo 下标 %d - (coins[%d]: %d) = %d', i, j, coins[j], memo[i - coins[j]] + 1);
+        // console.info('当目标金额 i = %d 时， 至少需要 %d 枚金币可以凑出', i, memo[i - coins[j]] + 1);
 
 
         memo[i] = Math.min(memo[i], memo[i - coins[j]] + 1);
       }
 
 
-      console.info(memo);
+      // console.info(memo);
     }
 
     return memo[amount] == amount + 1 ? -1 : memo[amount]
