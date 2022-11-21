@@ -11,25 +11,14 @@ class CoinChange extends Comparator {
     super();
   }
 
-  clean() {
+  public clean() {
     this.initialized = false;
     this.memo = [];
     return this;
   }
 
-  initialize(amount: number) {
-    if (this.initialized) {
-      return this;
-    }
-
-    if (this.memo.length === 0) {
-      this.memo = Array(amount + 1).fill(-2);
-    }
-    this.initialized = true;
-  }
-
   // @After('clean')
-  recursive(coins: number[], amount: number): number {
+  public recursive(coins: number[], amount: number): number {
     if (amount === 0 ) { return 0; }
     if (amount < 0) { return -1; }
 
@@ -51,32 +40,32 @@ class CoinChange extends Comparator {
     return this.memo[amount];
   }
 
-  iteration(coins: number[], amount: number) {
+  public iteration(coins: number[], amount: number) {
     if (amount === 0) { return 0; }
-
-
     let memo = Array(amount + 1).fill(amount + 1);
 
     memo[0] = 0;
     for (let i = 0; i < memo.length; i++) {
-
       for (let j = 0; j < coins.length; j++) {
         if (i - coins[j] < 0) {
           continue;
         }
-
-        // console.info('memo 下标 %d - (coins[%d]: %d) = %d', i, j, coins[j], memo[i - coins[j]] + 1);
-        // console.info('当目标金额 i = %d 时， 至少需要 %d 枚金币可以凑出', i, memo[i - coins[j]] + 1);
-
-
         memo[i] = Math.min(memo[i], memo[i - coins[j]] + 1);
       }
-
-
-      // console.info(memo);
     }
 
     return memo[amount] == amount + 1 ? -1 : memo[amount]
+  }
+
+  private initialize(amount: number) {
+    if (this.initialized) {
+      return this;
+    }
+
+    if (this.memo.length === 0) {
+      this.memo = Array(amount + 1).fill(-2);
+    }
+    this.initialized = true;
   }
 }
 
