@@ -9,9 +9,9 @@ import { mergeTwoLists } from '../src/linked.list/mergeTwoSortedList';
 import { removeDuplicate } from '../src/linked.list/removeDuplicate';
 import { reverse } from '../src/linked.list/reverse';
 
-describe('LinkedList Algorithm Unit Test', function() {
+describe('- Linked List Algorithms Unit Test', function() {
 
-  it('.generateLinkedList(arr: any[])', done => {
+  it('# Basic tool GenerateLinkedList()', done => {
     const originalArray = [1, 2, 3, 4, 5];
     const linkedList = generateLinkedList(originalArray);
     expect(linkedList instanceof ListNode).to.be.true;
@@ -21,7 +21,7 @@ describe('LinkedList Algorithm Unit Test', function() {
   });
 
 
-  it('.swapPairs(l: ListNode)', done => {
+  it('# Swap Pairs', done => {
     expect(
       traverse<number>(swapPairs(generateLinkedList([1, 3, 4, 2, 5, 9])))
     ).to.have.members([3, 1, 2, 4, 9, 5]);
@@ -37,12 +37,12 @@ describe('LinkedList Algorithm Unit Test', function() {
     done(null);
   });
 
-  it('.partition(l: ListNode, x: number)', done => {
+  it('# Partition', done => {
     partition(generateLinkedList([1,4,3,2,5,2]), 3);
     done(null);
   });
 
-  it('.middleNode(l: ListNode)', done => {
+  it('# Middle Node', done => {
     const originalValues = [1,2,3,4,5];
     const arr = traverse<number>(middleNode(generateLinkedList(originalValues)));
     const divided = originalValues.length / 2;
@@ -55,7 +55,7 @@ describe('LinkedList Algorithm Unit Test', function() {
     done(null);
   });
 
-  it('.getIntersectionNode(l1: ListNode, l2: ListNode) & .getIntersectionNodeVersion2(l1: ListNode, l2: ListNode)', done => {
+  it('# Intersection Node', done => {
     const l1 = generateLinkedList(['a1', 'a2', 'a3', 'a4', 'a5']);
     const l2 = generateLinkedList(['b1', 'b2', 'b3']);
     const l3 = generateLinkedList(['c1', 'c2']);
@@ -70,33 +70,29 @@ describe('LinkedList Algorithm Unit Test', function() {
     done(null);
   });
 
-  it('.mergeTwoLists(l1: ListNode, l2: ListNode)', done => {
-
+  it('# Merge Two Lists', done => {
     const l1 = generateLinkedList([1, 2, 3, 3, 4, 5, 8]);
     const l2 = generateLinkedList([2, 4, 6, 7, 8]);
-
     const v = traverse<number>(mergeTwoLists(l1, l2));
-
     expect(v).to.have.members([1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8, 8]);
     done(null);
   });
 
-  it('.removeDuplicate(head: ListNode)', done => {
-
+  it('# Remove Duplicates', done => {
     const l = removeDuplicate(generateLinkedList([0, 0, 1, 2, 2, 3, 4, 4]));
     expect(traverse<number>(l)).to.have.members([0, 1, 2, 3, 4]);
     done(null);
   });
 
 
-  it('.traverseRecursively(head: ListNode, container = []) => Array', done => {
+  it('# Traverse Recursively', done => {
     const orig = [1, 2, 3, 4, 5];
     const head = generateLinkedList(orig);
     expect(traverseRecursively(head)).to.have.ordered.members(orig);
     done(null);
   });
 
-  it('.reverse(head: ListNode) => ReversedArray[]', done => {
+  it('# Reverse ', done => {
     const orig = [1, 2, 3, 4, 5];
     const head = generateLinkedList(orig);
     expect(reverse(head)).to.have.ordered.members(orig.reverse());

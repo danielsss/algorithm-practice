@@ -29,7 +29,7 @@ class CoinChange extends Comparator {
   }
 
   // @After('clean')
-  dp(coins: number[], amount: number): number {
+  recursive(coins: number[], amount: number): number {
     if (amount === 0 ) { return 0; }
     if (amount < 0) { return -1; }
 
@@ -40,7 +40,7 @@ class CoinChange extends Comparator {
 
     let res = Number.MAX_SAFE_INTEGER;
     for (let i = 0; i < coins.length; i++) {
-      const sp = this.dp(coins, amount - coins[i]);
+      const sp = this.recursive(coins, amount - coins[i]);
       if (this.equal(sp, -1)) {
         continue;
       }
@@ -51,7 +51,7 @@ class CoinChange extends Comparator {
     return this.memo[amount];
   }
 
-  v2(coins: number[], amount: number) {
+  iteration(coins: number[], amount: number) {
     if (amount === 0) { return 0; }
 
 

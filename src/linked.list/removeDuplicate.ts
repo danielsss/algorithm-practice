@@ -1,4 +1,3 @@
-
 import { ListNode } from './linkedList';
 
 export function removeDuplicate(head: ListNode) {

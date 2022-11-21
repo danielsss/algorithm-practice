@@ -3,7 +3,7 @@ import {Comparator} from '../utils';
 
 class Stairs extends Comparator {
 
-  minCostClimbingStairs(cost: number[]): number {
+  minCostClimbingV1(cost: number[]): number {
     let dp = Array(cost.length + 1).fill(0);
 
     for (let i = 2; i <= cost.length; i++) {
@@ -13,7 +13,7 @@ class Stairs extends Comparator {
     return dp[cost.length];
   };
 
-  minCostClimbingStairsV2(cost: number[]): number {
+  minCostClimbingV2(cost: number[]): number {
     const dp = [0, 0];
 
     for (let i = 2; i <= cost.length; i++) {
