@@ -6,6 +6,7 @@ import MergeSort from '../src/array/MergeSort';
 import Material from '../src/array/material';
 import QuickSort from '../src/array/quickSort';
 import Repetition from '../src/array/repetition';
+import Intersection from '../src/array/intersection';
 
 
 describe('- Array Algorithms Unit Test', function() {
@@ -49,6 +50,17 @@ describe('- Array Algorithms Unit Test', function() {
     const reshuffled = utils.reshuffle(sortedArray);
     mergeSort.recursive(reshuffled, 0, reshuffled.length - 1);
     expect(reshuffled).to.have.ordered.members(orderedMembers);
+    done(null);
+  });
+
+
+  it('# 349. Intersection of Two Arrays', done => {
+    const intersection = new Intersection();
+    expect(intersection.twoArrays([1,2,2,1], [2, 2]))
+      .to.have.members([2]);
+
+    expect(intersection.twoArrays([4,9,5], [9,4,9,8,4]))
+      .to.have.members([9,4]);
     done(null);
   });
 });
