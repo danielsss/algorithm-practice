@@ -1,9 +1,10 @@
-# Algorithm Practice
+# 🪤🪤🪤Algorithms <Nutrition-less>
 
-🚀🚀🚀 Dedicates to grinding a thousand of `algorithms` and prepare to build rockets 🚀🚀🚀.
+Dedicates to grinding thousands of `algorithms` and prepare to build rockets 🚀🚀🚀.
+
 
 ```shell
-npm run test
+npm install && npm run test
 ```
 
 ```shell
