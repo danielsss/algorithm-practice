@@ -1,4 +1,6 @@
-# 🪤🪤🪤Algorithms <Nutrition-less>
+# 🪤🪤🪤
+
+~~**Nutrition-less**~~
 
 Dedicates to grinding thousands of `algorithms` and prepare to build rockets 🚀🚀🚀.
 
