@@ -1,13 +1,14 @@
 import { describe, it } from 'mocha';
 import { concrete, generateLinkedList, ListNode, traverse, traverseRecursively } from '../src/linked.list/linkedList';
 import { expect } from 'chai';
-import { swapPairs } from '../src/linked.list/swapPairs';
 import { partition } from '../src/linked.list/partition';
 import { middleNode } from '../src/linked.list/middleNode';
 import { getIntersectionNode, getIntersectionNodeVersion2 } from '../src/linked.list/intersection';
 import { mergeTwoLists } from '../src/linked.list/mergeTwoSortedList';
 import { removeDuplicate } from '../src/linked.list/removeDuplicate';
 import { reverse } from '../src/linked.list/reverse';
+
+import Swap from '../src/linked.list/swap';
 
 describe('- Linked List Algorithms Unit Test', function() {
 
@@ -21,16 +22,28 @@ describe('- Linked List Algorithms Unit Test', function() {
   });
 
 
+  it('# Swap k th Nodes', done => {
+    const swap = new Swap();
+    let swapped = swap.kthNodes(generateLinkedList([1,2,3,4,5]), 2);
+    expect(traverse<number>(swapped)).to.have.ordered.members([1,4,3,2,5]);
+
+    swapped = swap.kthNodes(generateLinkedList([7,9,6,6,7,8,3,0,9,5]), 5);
+    expect(traverse<number>(swapped)).to.have.ordered.members([7,9,6,6,8,7,3,0,9,5]);
+    done(null);
+  });
+
+
   it('# Swap Pairs', done => {
+    const swap = new Swap();
     expect(
-      traverse<number>(swapPairs(generateLinkedList([1, 3, 4, 2, 5, 9])))
+      traverse<number>(swap.pairs(generateLinkedList([1, 3, 4, 2, 5, 9])))
     ).to.have.members([3, 1, 2, 4, 9, 5]);
     expect(
-      traverse<number>(swapPairs(generateLinkedList([1])))
+      traverse<number>(swap.pairs(generateLinkedList([1])))
     ).to.have.members([1]);
-    expect(swapPairs(null)).to.eq(null);
+    expect(swap.pairs(null)).to.eq(null);
     expect(
-      traverse<number>(swapPairs(generateLinkedList([2, 3, 4])))
+      traverse<number>(swap.pairs(generateLinkedList([2, 3, 4])))
     ).to.have.members([3, 2, 4]);
 
 
