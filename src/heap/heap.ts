@@ -2,6 +2,11 @@ import { Comparator } from '../utils';
 
 class Heap extends Comparator {
 
+  constructor() {
+    super();
+  }
+
+
   /**
    * Get index of parent
    * @param i
