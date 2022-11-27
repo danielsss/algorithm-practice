@@ -19,9 +19,10 @@ class ArrayUtils {
 
 
   public swap(arr, a, b) {
-    let temp = arr[a];
+    const _ = arr[a];
     arr[a] = arr[b];
-    arr[b] = temp;
+    arr[b] = _;
+    return arr;
   }
 }
 
