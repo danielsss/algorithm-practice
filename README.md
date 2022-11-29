@@ -29,7 +29,7 @@ npm install && npm run test
     ✔ # Coin Change (1ms)
 
   - Linked List Algorithms Unit Test
-    ✔ # Basic tool GenerateLinkedList() (1ms)
+    ✔ # FindMedian tool GenerateLinkedList() (1ms)
     ✔ # Swap Pairs (1ms)
     ✔ # Partition (1ms)
     ✔ # Middle Node

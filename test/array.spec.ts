@@ -7,6 +7,8 @@ import Material from '../src/array/material';
 import QuickSort from '../src/array/quickSort';
 import Repetition from '../src/array/repetition';
 import Intersection from '../src/array/intersection';
+import MergeKlist from '../src/array/mergeKlist';
+import {generateLinkedList, traverse} from '../src/linked.list/linkedList';
 
 
 describe('- Array Algorithms Unit Test', function() {
@@ -61,6 +63,19 @@ describe('- Array Algorithms Unit Test', function() {
 
     expect(intersection.twoArrays([4,9,5], [9,4,9,8,4]))
       .to.have.members([9,4]);
+    done(null);
+  });
+
+  it('# 23. Merge k Sorted Lists', done => {
+    const k = new MergeKlist();
+    const lists = [
+      generateLinkedList([1,4,5]),
+      generateLinkedList([1,3,4]),
+      generateLinkedList([2,6]),
+    ];
+    const ordered = [ 1, 1, 2, 3, 4, 4, 5, 6 ];
+    const head = k.do(lists);
+    expect(traverse<number>(head)).to.have.ordered.members(ordered);
     done(null);
   });
 });

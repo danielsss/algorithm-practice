@@ -12,7 +12,7 @@ import Swap from '../src/linked.list/swap';
 
 describe('- Linked List Algorithms Unit Test', function() {
 
-  it('# Basic tool GenerateLinkedList()', done => {
+  it('# FindMedian tool GenerateLinkedList()', done => {
     const originalArray = [1, 2, 3, 4, 5];
     const linkedList = generateLinkedList(originalArray);
     expect(linkedList instanceof ListNode).to.be.true;

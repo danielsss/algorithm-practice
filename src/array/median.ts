@@ -1,7 +1,4 @@
-
-
-class Basic {
-
+class MedianNumber {
   mergeTwoSortedArrays(n1: number[], n2: number[]): number[] {
     let arr = [];
     let i = 0, j = 0;
@@ -40,4 +37,4 @@ class Basic {
   }
 }
 
-export default Basic;
+export default MedianNumber;
