@@ -1,13 +1,13 @@
 import Heap from './heap';
 
 
-class MinHeap extends Heap<number> {
+class MinHeap<R> extends Heap<R> {
 
   constructor() {
     super();
   }
 
-  isOrderCorrect(first, second): boolean {
+  compare(first: R, second: R): boolean {
     return this.lessThanOrEqual(first, second);
   }
 }

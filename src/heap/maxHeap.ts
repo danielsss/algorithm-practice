@@ -1,13 +1,13 @@
 import Heap from './heap';
 
 
-class MaxHeap extends Heap<number> {
+class MaxHeap<R> extends Heap<R> {
 
   constructor() {
     super();
   }
 
-  isOrderCorrect(first, second): boolean {
+  compare(first: R, second: R): boolean {
     return this.greaterThanOrEqual(first, second);
   }
 }
