@@ -5,6 +5,9 @@ class Heap<T> extends Comparator {
   protected container: T[];
 
   constructor() {
+    if (new.target === Heap) {
+      throw new TypeError('Cannot construct Heap instance directly');
+    }
     super();
     this.container = [];
   }
