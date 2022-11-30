@@ -1,14 +1,14 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { ArrayUtils } from '../src/utils';
+import { generateLinkedList, traverse } from '../src/linked.list/linkedList';
 import BubbleSort from '../src/array/bubbleSort';
 import MergeSort from '../src/array/MergeSort';
 import Material from '../src/array/material';
 import QuickSort from '../src/array/quickSort';
 import Repetition from '../src/array/repetition';
 import Intersection from '../src/array/intersection';
-import MergeKlist from '../src/array/mergeKlist';
-import {generateLinkedList, traverse} from '../src/linked.list/linkedList';
+import MergeKList from '../src/array/mergeKlist';
 
 
 describe('- Array Algorithms Unit Test', function() {
@@ -67,7 +67,7 @@ describe('- Array Algorithms Unit Test', function() {
   });
 
   it('# 23. Merge k Sorted Lists', done => {
-    const k = new MergeKlist();
+    const k = new MergeKList();
     const lists = [
       generateLinkedList([1,4,5]),
       generateLinkedList([1,3,4]),
