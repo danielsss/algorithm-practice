@@ -50,6 +50,11 @@ class BinarySearch extends Comparator {
     return -1;
   }
 
+  /**
+   * 374. Guess Number Higher or Lower
+   * @param n
+   * @param guessNumber
+   */
   guessNumber(n: number, guessNumber: number): number {
     let low = 0;
     let high = n;
@@ -67,6 +72,62 @@ class BinarySearch extends Comparator {
     }
 
     return pivot;
+  }
+
+  /**
+   * 852. Peak Index in a Mountain Array
+   * @param arr
+   */
+  peakIndexInMountainArray(arr: number[]) {
+    if (arr.length === 0) return -1;
+
+    let low = 0;
+    let high = arr.length;
+
+    while (this.lessThan(low, high)) {
+      let mid = Math.floor(low + (high - low) / 2);
+
+      if (this.greaterThanOrEqual(arr[mid], arr[mid + 1])) {
+        high = mid;
+      } else {
+        low = mid + 1;
+      }
+    }
+
+    return low;
+  }
+
+  /**
+   * 35. Search Insert Position
+   *
+   * Given a sorted array of distinct integers and a target value,
+   * return the index if the target is found. If not,
+   * return the index where it would be if it were inserted in order.
+   *
+   * You must write an algorithm with O(log n) runtime complexity.
+   *
+   * Example: nums = [1,3,5,6], target = 5, 2
+   * @param arr
+   * @param target
+   */
+  searchInsertPosition(arr: number[], target: number) {
+    let low = 0;
+    let high = arr.length;
+
+    let mid = Math.floor(low + (high - low) / 2);
+
+    while(this.lessThan(low, high)) {
+      if (this.equal(arr[mid], target)) {
+        return mid;
+      } else if (this.lessThan(arr[mid], target)) {
+        low = mid + 1;
+      } else if (this.greaterThan(arr[mid],  target)) {
+        high = mid;
+      }
+      mid = Math.floor(low + (high - low) / 2);
+    }
+
+    return mid;
   }
 }
 

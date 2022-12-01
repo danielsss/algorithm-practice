@@ -20,4 +20,20 @@ describe('- Binary Search Unit Test', function () {
     done(null);
   });
 
+  it('# 852. Peak Index in a Mountain Array', done => {
+    const bs = new BinarySearch();
+    expect(bs.peakIndexInMountainArray([0, 1, 0])).to.eq(1);
+    expect(bs.peakIndexInMountainArray([0, 10, 2, 0])).to.eq(1);
+    expect(bs.peakIndexInMountainArray([0, 1, 20, 6, 5, 2])).to.eq(2);
+    done(null);
+  });
+
+
+  it('# ', done => {
+    const bs = new BinarySearch();
+    expect(bs.searchInsertPosition([1,3,5,6], 2)).to.eq(1);
+    expect(bs.searchInsertPosition([1,3,5,6], 5)).to.eq(2);
+    done(null);
+  });
+
 });
