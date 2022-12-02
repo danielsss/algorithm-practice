@@ -129,6 +129,33 @@ class BinarySearch extends Comparator {
 
     return mid;
   }
+
+  /**
+   * 367. Valid Perfect Square
+   * @param num
+   */
+  isPerfectSquare(num: number): boolean {
+    let low = 0;
+    let high = num;
+    let mid = Math.floor(low + (high - low) / 2);
+
+    while (low < high) {
+
+      if (mid * mid === num) {
+        return true;
+      }
+
+      if (mid * mid > num) {
+        high = mid;
+      } else if (mid * mid < num) {
+        low = mid + 1;
+      }
+
+      mid = Math.floor(low + (high - low) / 2);
+    }
+
+    return false;
+  }
 }
 
 export default BinarySearch;

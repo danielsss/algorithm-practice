@@ -29,10 +29,20 @@ describe('- Binary Search Unit Test', function () {
   });
 
 
-  it('# ', done => {
+  it('# 35. Search Insert Position', done => {
     const bs = new BinarySearch();
     expect(bs.searchInsertPosition([1,3,5,6], 2)).to.eq(1);
     expect(bs.searchInsertPosition([1,3,5,6], 5)).to.eq(2);
+    done(null);
+  });
+
+  it('# 367. Valid Perfect Square', done => {
+    const bs = new BinarySearch();
+    expect(bs.isPerfectSquare(16)).to.be.true;
+    expect(bs.isPerfectSquare(13)).to.be.false;
+    expect(bs.isPerfectSquare(14)).to.be.false;
+    expect(bs.isPerfectSquare(15)).to.be.false;
+    expect(bs.isPerfectSquare(25)).to.be.true;
     done(null);
   });
 
