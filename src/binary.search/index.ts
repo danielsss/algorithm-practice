@@ -156,6 +156,26 @@ class BinarySearch extends Comparator {
 
     return false;
   }
+
+  /**
+   * 744. Find Smallest Letter Greater Than Target
+   * @param letters
+   * @param target
+   */
+  nextGreatestLetter(letters: string[], target: string): string {
+    let low = 0;
+    let high = letters.length;
+    while (low < high) {
+      let mid = Math.floor(low + (high - low) / 2);
+      if (letters[mid] > target) {
+        high = mid;
+      } else {
+        low = mid + 1;
+      }
+    }
+
+    return letters[low] > target ? letters[low]: letters[0];
+  };
 }
 
 export default BinarySearch;

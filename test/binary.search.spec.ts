@@ -46,4 +46,12 @@ describe('- Binary Search Unit Test', function () {
     done(null);
   });
 
+  it('# 744. Find Smallest Letter Greater Than Target', done => {
+    const bs = new BinarySearch();
+    expect(bs.nextGreatestLetter(['c', 'f', 'g'], 'c')).to.eq('f');
+    expect(bs.nextGreatestLetter(['c', 'f', 'g'], 'a')).to.eq('c');
+    expect(bs.nextGreatestLetter(["x","x","y","y"], 'z')).to.eq('x');
+    done(null);
+  });
+
 });
