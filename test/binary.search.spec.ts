@@ -52,6 +52,16 @@ describe('- Binary Search Unit Test', function () {
     expect(bs.nextGreatestLetter(['c', 'f', 'g'], 'a')).to.eq('c');
     expect(bs.nextGreatestLetter(["x","x","y","y"], 'z')).to.eq('x');
     done(null);
+  })
+
+  it('# 34. Find First and Last Position of Element in Sorted Array', done => {
+    const bs = new BinarySearch();
+    expect(bs.searchRange([1,2,5,7,7,   8,8,8,   10], 8)).to.have.ordered.members([5, 7]);
+    expect(bs.searchRange([5,7,7,8,8,10], 6)).to.have.ordered.members([-1, -1]);
+    expect(bs.searchRange([3, 3, 3], 3)).to.have.ordered.members([0, 2]);
+    expect(bs.searchRange([1], 1)).to.have.ordered.members([0, 0]);
+    expect(bs.searchRange([], 0)).to.have.ordered.members([-1, -1]);
+    done(null);
   });
 
 });
