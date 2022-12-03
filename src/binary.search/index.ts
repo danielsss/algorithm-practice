@@ -37,7 +37,7 @@ class BinarySearch extends Comparator {
     let right = nums.length - 1;
 
     while(left <= right) {
-      let mid = Math.floor(left + (right - left) / 2);
+      let mid = this.pivot(left, right);
       if (this.equal(nums[mid], target)) {
         return mid;
       } else if (this.lessThan(nums[mid], target)) {
@@ -58,7 +58,7 @@ class BinarySearch extends Comparator {
   guessNumber(n: number, guessNumber: number): number {
     let low = 0;
     let high = n;
-    let pivot = Math.floor(low + (high - low) / 2);
+    let pivot = this.pivot(low, high);
     const assistance = new BinarySearchAssistance(guessNumber);
 
     while (this.isNotEqual(assistance.guess(pivot), BinarySearchAssistance.IS_EQUAL)) {
@@ -68,7 +68,7 @@ class BinarySearch extends Comparator {
         high = pivot - 1;
       }
 
-      pivot = Math.floor(low + (high - low) / 2);
+      pivot = this.pivot(low, high);
     }
 
     return pivot;
@@ -85,7 +85,7 @@ class BinarySearch extends Comparator {
     let high = arr.length;
 
     while (this.lessThan(low, high)) {
-      let mid = Math.floor(low + (high - low) / 2);
+      let mid = this.pivot(low, high);
 
       if (this.greaterThanOrEqual(arr[mid], arr[mid + 1])) {
         high = mid;
@@ -114,7 +114,7 @@ class BinarySearch extends Comparator {
     let low = 0;
     let high = arr.length;
 
-    let mid = Math.floor(low + (high - low) / 2);
+    let mid = this.pivot(low, high);
 
     while(this.lessThan(low, high)) {
       if (this.equal(arr[mid], target)) {
@@ -124,7 +124,7 @@ class BinarySearch extends Comparator {
       } else if (this.greaterThan(arr[mid],  target)) {
         high = mid;
       }
-      mid = Math.floor(low + (high - low) / 2);
+      mid = this.pivot(low, high);
     }
 
     return mid;
@@ -137,7 +137,7 @@ class BinarySearch extends Comparator {
   isPerfectSquare(num: number): boolean {
     let low = 0;
     let high = num;
-    let mid = Math.floor(low + (high - low) / 2);
+    let mid = this.pivot(low, high);
 
     while (low < high) {
 
@@ -151,7 +151,7 @@ class BinarySearch extends Comparator {
         low = mid + 1;
       }
 
-      mid = Math.floor(low + (high - low) / 2);
+      mid = this.pivot(low, high);
     }
 
     return false;
@@ -166,7 +166,7 @@ class BinarySearch extends Comparator {
     let low = 0;
     let high = letters.length;
     while (low < high) {
-      let mid = Math.floor(low + (high - low) / 2);
+      let mid = this.pivot(low, high);
       if (letters[mid] > target) {
         high = mid;
       } else {
@@ -187,18 +187,14 @@ class BinarySearch extends Comparator {
    * [1,2,5,7,7,   8,8,8,   10]
    */
   searchRange(nums: number[], target: number): number[] {
-    return [ left(), right() ];
-    function left() {
+    const left = () => {
       let low = 0;
       let high = nums.length;
 
       while(low < high) {
-        let mid = Math.floor(low + (high - low) / 2);
-        if (nums[mid] === target && mid === 0) {
-          return 0;
-        }
-        if (nums[mid] === target && nums[mid - 1] !== target) {
-          return mid;
+        let mid = this.pivot(low, high);
+        if (nums[mid] === target) {
+          if (mid === 0 || nums[mid - 1] !== target) return mid;
         }
 
         if (nums[mid] === target && nums[mid - 1] === target) {
@@ -213,17 +209,16 @@ class BinarySearch extends Comparator {
       return -1;
     }
 
-    function right() {
+    const right = () => {
       let low = 0;
       let high = nums.length;
 
       while(low < high) {
-        let mid = Math.floor(low + (high - low) / 2);
-        if (nums[mid] === target && mid === nums.length - 1) {
-          return mid;
-        }
-        if (nums[mid] === target && nums[mid + 1] !== target) {
-          return mid;
+        let mid = this.pivot(low, high);
+        if (nums[mid] === target) {
+          if (mid === nums.length - 1 || nums[mid + 1] !== target) {
+            return mid;
+          }
         }
 
         if (nums[mid] === target && nums[mid + 1] === target) {
@@ -237,6 +232,17 @@ class BinarySearch extends Comparator {
 
       return -1;
     }
+
+
+    return [ left(), right() ];
+  }
+
+
+  protected pivot(low: number, high: number) {
+    if (isNaN(low) || isNaN(high)) {
+      throw new Error('low and high must be numbers');
+    }
+    return Math.floor(low + (high - low) / 2);
   }
 }
 
