@@ -237,6 +237,38 @@ class BinarySearch extends Comparator {
     return [ left(), right() ];
   }
 
+  /**
+   * 1351. Count Negative Numbers in a Sorted Matrix
+   */
+  public countNegatives(grid: number[][]): number {
+    let row = grid.length;
+    let col = grid[0].length;
+
+    let i = 0;
+    let j = col - 1;
+    let count = 0;
+    while (j >= 0 && i < row) {
+
+      if (grid[i][j] < 0) {
+        count++;
+        if (j === 0) {
+          j = col - 1;
+          i++;
+        } else {
+          j--;
+        }
+      } else if (j === 0) {
+        i++;
+        j = col - 1;
+      } else {
+        j--;
+      }
+
+    }
+
+    return count;
+  }
+
 
   protected pivot(low: number, high: number) {
     if (isNaN(low) || isNaN(high)) {

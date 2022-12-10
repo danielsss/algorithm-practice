@@ -64,4 +64,12 @@ describe('- Binary Search Unit Test', function () {
     done(null);
   });
 
+
+  it('# 1351. Count Negative Numbers in a Sorted Matrix', done => {
+
+    const bs = new BinarySearch();
+    const count = bs.countNegatives([[3,2],[-3,-3],[-3,-3],[-3,-3]]);
+    expect(count).to.eq(6);
+    done(null);
+  });
 });
