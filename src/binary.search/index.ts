@@ -249,15 +249,15 @@ class BinarySearch extends Comparator {
     let count = 0;
     while (j >= 0 && i < row) {
 
-      if (grid[i][j] < 0) {
+      if (this.lessThan(grid[i][j], 0)) {
         count++;
-        if (j === 0) {
+        if (this.equal(j, 0)) {
           j = col - 1;
           i++;
         } else {
           j--;
         }
-      } else if (j === 0) {
+      } else if (this.equal(j, 0)) {
         i++;
         j = col - 1;
       } else {
@@ -267,6 +267,39 @@ class BinarySearch extends Comparator {
     }
 
     return count;
+  }
+
+  /**
+   * 153. Find Minimum in Rotated Sorted Array
+   * @param nums
+   */
+  public findMinFromRotatedArray(nums: number[]): number {
+    let low = 0;
+    let high = nums.length;
+    if (this.equal(nums.length, 1)) {
+      return nums[0];
+    }
+
+    if (this.lessThan(nums[low], nums[high - 1])) {
+      return nums[low];
+    }
+    while (low < high) {
+      let mid = this.pivot(low, high);
+      if (nums[mid] > nums[mid + 1]) {
+        return nums[mid + 1];
+      }
+      if (nums[mid] < nums[mid - 1]) {
+        return nums[mid];
+      }
+
+      if (nums[mid] > nums[0]) {
+        // We should search the minimum value towards right ig mid > the first element
+        low = mid + 1;
+      } else {
+        // Otherwise, we should search minimum value towards left
+        high = mid;
+      }
+    }
   }
 
 

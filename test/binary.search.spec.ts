@@ -66,10 +66,21 @@ describe('- Binary Search Unit Test', function () {
 
 
   it('# 1351. Count Negative Numbers in a Sorted Matrix', done => {
-
     const bs = new BinarySearch();
     const count = bs.countNegatives([[3,2],[-3,-3],[-3,-3],[-3,-3]]);
     expect(count).to.eq(6);
+    done(null);
+  });
+
+
+  it('# 153. Find Minimum in Rotated Sorted Array', done => {
+    const bs = new BinarySearch();
+    expect(bs.findMinFromRotatedArray([3,4,5,1,2])).to.eq(1);
+    expect(bs.findMinFromRotatedArray([4,5,6,7,0,1,2])).to.eq(0);
+    expect(bs.findMinFromRotatedArray([11,13,15,17])).to.eq(11);
+    expect(bs.findMinFromRotatedArray([2, 1])).to.eq(1);
+    expect(bs.findMinFromRotatedArray([3, 1, 2])).to.eq(1);
+    expect(bs.findMinFromRotatedArray([5,1,2,3,4])).to.eq(1);
     done(null);
   });
 });
