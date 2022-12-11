@@ -81,6 +81,15 @@ describe('- Binary Search Unit Test', function () {
     expect(bs.findMinFromRotatedArray([2, 1])).to.eq(1);
     expect(bs.findMinFromRotatedArray([3, 1, 2])).to.eq(1);
     expect(bs.findMinFromRotatedArray([5,1,2,3,4])).to.eq(1);
+    bs.judgeSquareSum(4);
+    done(null);
+  });
+
+  it('# 633. Sum of Square Numbers', done => {
+    const bs = new BinarySearch();
+    expect(bs.judgeSquareSum(5)).to.be.true;
+    expect(bs.judgeSquareSum(4)).to.be.true;
+    expect(bs.judgeSquareSum(3)).to.be.false;
     done(null);
   });
 });

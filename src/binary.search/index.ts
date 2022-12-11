@@ -302,6 +302,26 @@ class BinarySearch extends Comparator {
     }
   }
 
+  /**
+   * 633. Sum of Square Numbers
+   * @param c
+   */
+  judgeSquareSum(c: number): boolean {
+    let low = 0;
+    let high = Math.floor(Math.sqrt(c));
+
+    while (this.lessThanOrEqual(low, high)) {
+      let sum = (low * low) + (high * high);
+      if (this.equal(sum, c)){
+        return true;
+      }
+
+      if (this.lessThan(sum, c)) low++;
+      if (this.greaterThan(sum, c)) high--;
+    }
+
+    return false;
+  };
 
   protected pivot(low: number, high: number) {
     if (isNaN(low) || isNaN(high)) {
