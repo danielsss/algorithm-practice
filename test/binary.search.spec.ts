@@ -90,6 +90,15 @@ describe('- Binary Search Unit Test', function () {
     expect(bs.judgeSquareSum(5)).to.be.true;
     expect(bs.judgeSquareSum(4)).to.be.true;
     expect(bs.judgeSquareSum(3)).to.be.false;
+
+    done(null);
+  });
+
+  it('# 74. Search a 2D Matrix', done => {
+    const bs = new BinarySearch();
+    expect(bs.searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]],3)).to.be.true;
+    expect(bs.searchMatrix([[1]], 1)).to.be.true;
+    expect(bs.searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)).to.be.false;
     done(null);
   });
 });

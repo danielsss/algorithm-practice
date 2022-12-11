@@ -323,6 +323,31 @@ class BinarySearch extends Comparator {
     return false;
   };
 
+  /**
+   * 74. Search a 2D Matrix
+   * @param matrix
+   * @param target
+   */
+  public searchMatrix(matrix: number[][], target: number): boolean {
+    let row = matrix.length;
+    let col = matrix[0].length;
+    let i = 0;
+    let j = col - 1;
+    while (this.lessThan(i, row) && this.greaterThanOrEqual(j,0)) {
+      if (this.equal(matrix[i][j], target)) {
+        return true;
+      }
+
+      if (this.lessThan(matrix[i][j], target)) {
+        i++;
+      } else {
+        j--;
+      }
+    }
+
+    return false;
+  };
+
   protected pivot(low: number, high: number) {
     if (isNaN(low) || isNaN(high)) {
       throw new Error('low and high must be numbers');
