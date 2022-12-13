@@ -9,6 +9,7 @@ import QuickSort from '../src/array/quickSort';
 import Repetition from '../src/array/repetition';
 import Intersection from '../src/array/intersection';
 import MergeKList from '../src/array/mergeKlist';
+import Contain from '../src/array/contain';
 
 
 describe('- Array Algorithms Unit Test', function() {
@@ -76,6 +77,20 @@ describe('- Array Algorithms Unit Test', function() {
     const ordered = [ 1, 1, 2, 3, 4, 4, 5, 6 ];
     const head = k.do(lists);
     expect(traverse<number>(head)).to.have.ordered.members(ordered);
+    done(null);
+  });
+
+  it('# 217. Contains Duplicate', done => {
+    const contain = new Contain();
+    expect(contain.duplicatesV1([])).to.be.false;
+    expect(contain.duplicatesV2([])).to.be.false;
+
+    expect(contain.duplicatesV1([1,2,3,1])).to.be.true;
+    expect(contain.duplicatesV2([1,2,3,1])).to.be.true;
+
+    expect(contain.duplicatesV1([1,2,3,4])).to.be.false;
+    expect(contain.duplicatesV2([1,2,3,4])).to.be.false;
+
     done(null);
   });
 });
