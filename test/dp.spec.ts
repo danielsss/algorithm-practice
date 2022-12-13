@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import CoinChange from '../src/dp/coinChange';
 import Stairs from '../src/dp/stairs';
 import Fibonacci  from '../src/dp/fibonacci';
+import DynamicProgramming from '../src/dp';
 
 describe('- Dynamic Programming Algorithms Unit Test', function() {
 
@@ -44,6 +45,16 @@ describe('- Dynamic Programming Algorithms Unit Test', function() {
     coinChange.clean();
 
     expect(coinChange.iteration([1, 2, 5], 11)).to.eq(3);
+    done(null);
+  });
+
+  it('# 53. Maximum Subarray', done => {
+    const dp = new DynamicProgramming();
+    expect(dp.maxSubArray([-2,1,-3,4,-1,2,1,-5,4])).to.eq(6);
+    expect(dp.maxSubArray([-2, 1])).to.eq(1);
+    expect(dp.maxSubArray([1])).to.eq(1);
+    expect(dp.maxSubArray([5,4,-1,7,8])).to.eq(23);
+    expect(dp.maxSubArray([])).to.eq(0);
     done(null);
   });
 });
