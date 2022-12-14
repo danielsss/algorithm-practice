@@ -8,6 +8,30 @@ class MergeSort {
     this.temp = []
   }
 
+  /**
+   * 88. Merge Sorted Array
+   * Do not return anything, modify nums1 in-place instead.
+   */
+  public mergerTwoSortedArray(nums1: number[], m: number, nums2: number[], n: number) {
+    let i = m - 1, j = n - 1;
+    let p = nums1.length - 1;
+    while (i >= 0 && j >= 0) {
+      if (nums1[i] > nums2[j]) {
+        nums1[p] = nums1[i];
+        i--;
+      } else {
+        nums1[p] = nums2[j];
+        j--;
+      }
+      p--;
+    }
+    while (j >= 0) {
+      nums1[p] = nums2[j];
+      j--;
+      p--;
+    }
+  }
+
   public recursive(nums: number[], low: number, high: number) {
     if (low === high) {
       return;

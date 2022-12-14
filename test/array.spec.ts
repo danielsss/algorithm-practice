@@ -93,4 +93,14 @@ describe('- Array Algorithms Unit Test', function() {
 
     done(null);
   });
+
+
+  it('# 88. Merge Sorted Array', done => {
+    const merge = new MergeSort();
+    const arr1 = [1,2,5,0,0,0];
+    merge.mergerTwoSortedArray(arr1, 3, [2, 5, 6], 3)
+    expect(arr1).to.have.ordered.members([1,2,2,5,5,6]);
+    done(null);
+  })
+
 });
