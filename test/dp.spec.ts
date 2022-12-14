@@ -4,6 +4,7 @@ import CoinChange from '../src/dp/coinChange';
 import Stairs from '../src/dp/stairs';
 import Fibonacci  from '../src/dp/fibonacci';
 import DynamicProgramming from '../src/dp';
+import Robber from '../src/dp/robber';
 
 describe('- Dynamic Programming Algorithms Unit Test', function() {
 
@@ -55,6 +56,17 @@ describe('- Dynamic Programming Algorithms Unit Test', function() {
     expect(dp.maxSubArray([1])).to.eq(1);
     expect(dp.maxSubArray([5,4,-1,7,8])).to.eq(23);
     expect(dp.maxSubArray([])).to.eq(0);
+    done(null);
+  });
+
+
+  it('# 198. House Robber', done => {
+    const rob = new Robber();
+    expect(rob.house([2, 1, 1, 2])).to.eq(4);
+    expect(rob.house([1])).to.eq(1);
+    expect(rob.house([])).to.eq(0);
+    expect(rob.house([1, 2, 3, 1])).to.eq(4);
+    expect(rob.house([2, 4, 5, 6, 8, -1])).to.eq(15);
     done(null);
   });
 });
