@@ -1,5 +1,5 @@
 import { Comparator } from '../utils';
-import { BinaryTreeNode } from '../tree/binaryTreeNode';
+import { TreeNode } from '../tree/treeNode';
 
 
 /**
@@ -56,27 +56,26 @@ class Robber extends Comparator {
    * 337. House Robber III
    * @param root
    */
-  public houseInTree(root: BinaryTreeNode<number>) {
-    let s = this.factory(root);
+  public houseInTree(root: TreeNode<number>) {
+    let s = factory(root);
+
+    /**
+     * Post traverse
+     * @param root
+     */
+    function factory(root: TreeNode<number> | null) {
+      if (root === null) {
+        return [0, 0];
+      }
+      let left = factory(root.getLeft());
+      let right = factory(root.getRight());
+      let rob = root.getValue() + left[1] + right[1];
+      let notRob = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+      return [rob, notRob];
+    }
+
     return Math.max(s[0], s[1]);
   }
-
-  /**
-   * Binary Tree Post traverse
-   * @param root
-   * @protected
-   */
-  protected factory(root: BinaryTreeNode<number> | null) {
-    if (root === null) {
-      return [0, 0];
-    }
-    let left = this.factory(root.getLeft());
-    let right = this.factory(root.getRight());
-    let rob = root.getValue() + left[1] + right[1];
-    let notRob = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
-    return [rob, notRob];
-  }
-
 }
 
 export default Robber;

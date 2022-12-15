@@ -1,17 +1,17 @@
-import { BinaryTreeNode } from './binaryTreeNode';
+import { TreeNode } from './treeNode';
 
 export class BinaryTree<T> {
 
-  private readonly _root: BinaryTreeNode<T>;
+  private readonly _root: TreeNode<T>;
 
   constructor(value: T) {
-    this._root = new BinaryTreeNode(value);
+    this._root = new TreeNode(value);
   }
 
   /**
    * Returns 'root' node
    */
-  getRoot(): BinaryTreeNode<T> {
+  getRoot(): TreeNode<T> {
     return this._root;
   }
 
@@ -20,7 +20,7 @@ export class BinaryTree<T> {
    * @param value
    * @param node
    */
-  findNode(value: T, node: BinaryTreeNode<T> = null): BinaryTreeNode<T> {
+  findNode(value: T, node: TreeNode<T> = null): TreeNode<T> {
 
     if (this._root === null) {
       return null;
@@ -30,7 +30,7 @@ export class BinaryTree<T> {
       node = this.getRoot();
     }
 
-    let result: BinaryTreeNode<T> = null;
+    let result: TreeNode<T> = null;
 
     if (node.getValue() === value) {
       result = node;
@@ -48,7 +48,7 @@ export class BinaryTree<T> {
 
   }
 
-  displayEveryNodeLevel(root: BinaryTreeNode<T>, level: number) {
+  displayEveryNodeLevel(root: TreeNode<T>, level: number) {
     if (root === null) return 0;
 
     console.info('Node: %d at level: %d', root.getValue(), level);
@@ -56,7 +56,7 @@ export class BinaryTree<T> {
     this.displayEveryNodeLevel(root.getRight(), level + 1);
   }
 
-  hasNodes(root: BinaryTreeNode<T>) {
+  hasNodes(root: TreeNode<T>) {
     if (root === null) return 0;
 
     let leftCount = this.hasNodes(root.getLeft());

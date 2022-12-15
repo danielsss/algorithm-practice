@@ -1,4 +1,4 @@
-import { BinaryTreeNode } from './binaryTreeNode';
+import { TreeNode } from './treeNode';
 import { Timer } from '../ioc/timer';
 
 class Algorithms {
@@ -14,7 +14,7 @@ class Algorithms {
 
 
   //@Timer('maxDepth()')
-  public maxDepth(root: BinaryTreeNode<number>): number {
+  public maxDepth(root: TreeNode<number>): number {
     if (root === null) return 0;
 
     let leftMax = this.maxDepth(root.getLeft());

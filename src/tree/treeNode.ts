@@ -1,8 +1,8 @@
-export class BinaryTreeNode<T> {
+export class TreeNode<T> {
 
   private _value:  T;
-  private _left:   BinaryTreeNode<T>;
-  private _right:  BinaryTreeNode<T>;
+  private _left:   TreeNode<T>;
+  private _right:  TreeNode<T>;
 
   constructor(value: T = null) {
     this._left = null;
@@ -17,8 +17,8 @@ export class BinaryTreeNode<T> {
    * @param rightValue
    */
   setBoth(leftValue, rightValue) {
-    this._left = new BinaryTreeNode<T>(leftValue);
-    this._right = new BinaryTreeNode<T>(rightValue);
+    this._left = new TreeNode<T>(leftValue);
+    this._right = new TreeNode<T>(rightValue);
     return this;
   }
 
@@ -40,7 +40,7 @@ export class BinaryTreeNode<T> {
   /**
    * Return left node
    */
-  getLeft(): BinaryTreeNode<T> {
+  getLeft(): TreeNode<T> {
     return this._left;
   }
 
@@ -49,14 +49,14 @@ export class BinaryTreeNode<T> {
    * @param value
    */
   setLeft(value: T) {
-    this._left = new BinaryTreeNode<T>(value);
+    this._left = new TreeNode<T>(value);
     return this._left;
   }
 
   /**
    * Return right node
    */
-  getRight(): BinaryTreeNode<T> {
+  getRight(): TreeNode<T> {
     return this._right;
   }
 
@@ -65,7 +65,7 @@ export class BinaryTreeNode<T> {
    * @param value
    */
   setRight(value: T) {
-    this._right = new BinaryTreeNode<T>(value);
+    this._right = new TreeNode<T>(value);
     return this._right;
   }
 
