@@ -1,5 +1,6 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
+import { BinaryTree } from '../src/tree/binaryTree';
 import CoinChange from '../src/dp/coinChange';
 import Stairs from '../src/dp/stairs';
 import Fibonacci  from '../src/dp/fibonacci';
@@ -67,6 +68,30 @@ describe('- Dynamic Programming Algorithms Unit Test', function() {
     expect(rob.house([])).to.eq(0);
     expect(rob.house([1, 2, 3, 1])).to.eq(4);
     expect(rob.house([2, 4, 5, 6, 8, -1])).to.eq(15);
+    done(null);
+  });
+
+  it('# 213. House Robber II', done => {
+    const rob = new Robber();
+    expect(rob.houseInCircle([2, 1, 1, 2])).to.eq(2 + 1);
+    expect(rob.houseInCircle([2,3,2])).to.eq(3);
+    expect(rob.house([1,2,3,1])).to.eq(1 + 3);
+    done(null);
+  });
+
+  it.only('# 337. House Robber III', done => {
+    const rob = new Robber();
+    const tree = new BinaryTree(3);
+    tree.getRoot().setLeft(2).setRight(3);
+    tree.getRoot().setRight(3).setRight(1);
+    expect(rob.houseInTree(tree.getRoot())).to.eq(7);
+    done(null);
+  });
+
+  it('# 1143. Longest Common Subsequence', done => {
+    const dp = new DynamicProgramming();
+    expect(dp.longCommonSubsequence('abcde', 'ace')).to.eq(3);
+    expect(dp.longCommonSubsequence('abcd', 'ace')).to.eq(2);
     done(null);
   });
 });

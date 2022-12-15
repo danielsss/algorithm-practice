@@ -10,6 +10,7 @@ import Repetition from '../src/array/repetition';
 import Intersection from '../src/array/intersection';
 import MergeKList from '../src/array/mergeKlist';
 import Contain from '../src/array/contain';
+import Stock from '../src/dp/stock';
 
 
 describe('- Array Algorithms Unit Test', function() {
@@ -102,5 +103,13 @@ describe('- Array Algorithms Unit Test', function() {
     expect(arr1).to.have.ordered.members([1,2,2,5,5,6]);
     done(null);
   })
+
+
+  it('# 121. Best Time to Buy and Sell Stock', done => {
+    const stock = new Stock();
+    expect(stock.maxProfit([7,1,5,3,6,4])).to.eq(5);
+    expect(stock.maxProfit([7,6,4,3,1])).to.eq(0);
+    done(null);
+  });
 
 });

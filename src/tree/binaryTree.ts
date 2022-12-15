@@ -2,7 +2,7 @@ import { BinaryTreeNode } from './binaryTreeNode';
 
 export class BinaryTree<T> {
 
-  private _root: BinaryTreeNode<T>;
+  private readonly _root: BinaryTreeNode<T>;
 
   constructor(value: T) {
     this._root = new BinaryTreeNode(value);

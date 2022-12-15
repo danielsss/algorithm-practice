@@ -1,8 +1,22 @@
 import { Comparator } from '../utils';
+import { BinaryTreeNode } from '../tree/binaryTreeNode';
 
 
+/**
+ * Classical Stock Questions for dynamic programming
+ */
 class Robber extends Comparator {
 
+
+  protected isBasicCase(len: number): boolean {
+    return this.lessThanOrEqual(len, 2);
+  }
+
+  protected getMaxMoney(nums: number[]): number {
+    if (this.equal(nums.length, 0)) return 0;
+    if (this.equal(nums.length, 1)) return nums[0];
+    if (this.equal(nums.length, 2)) return Math.max(nums[0], nums[1]);
+  }
   /**
    * 198. House Robber
    * You are a professional robber planning to rob houses along a street.
@@ -17,9 +31,9 @@ class Robber extends Comparator {
    */
   public house(nums: number[]): number {
     const len = nums.length;
-    if (this.equal(len, 0)) return 0;
-    if (this.equal(len, 1)) return nums[0];
-    if (this.equal(len, 2)) return Math.max(nums[0], nums[1]);
+    if (this.isBasicCase(len)) {
+      return this.getMaxMoney(nums);
+    }
 
     let i = 2;
     while (i < len) {
@@ -32,8 +46,36 @@ class Robber extends Comparator {
   }
 
 
-  public houseII() {}
-  public houseIII() {}
+  public houseInCircle(nums: number[]): number {
+    const situation1 = this.house(nums.slice(0, nums.length - 1));
+    const situation2 = this.house(nums.slice(1, nums.length));
+    return Math.max(situation1, situation2);
+  }
+
+  /**
+   * 337. House Robber III
+   * @param root
+   */
+  public houseInTree(root: BinaryTreeNode<number>) {
+    let s = this.factory(root);
+    return Math.max(s[0], s[1]);
+  }
+
+  /**
+   * Binary Tree Post traverse
+   * @param root
+   * @protected
+   */
+  protected factory(root: BinaryTreeNode<number> | null) {
+    if (root === null) {
+      return [0, 0];
+    }
+    let left = this.factory(root.getLeft());
+    let right = this.factory(root.getRight());
+    let rob = root.getValue() + left[1] + right[1];
+    let notRob = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+    return [rob, notRob];
+  }
 
 }
 

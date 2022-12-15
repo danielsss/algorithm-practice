@@ -1,5 +1,13 @@
 class ArrayUtils {
 
+  public unique<T>(arr: T[]): T[] {
+    if (!Array.isArray(arr) || arr.length <= 1) {
+      return arr;
+    }
+
+
+  }
+
   public reshuffle(arr: number[]) {
     let i = 0;
     while(i < arr.length) {

@@ -5,9 +5,21 @@ export class BinaryTreeNode<T> {
   private _right:  BinaryTreeNode<T>;
 
   constructor(value: T = null) {
-    this._value = value;
     this._left = null;
     this._right = null;
+    this.setValue(value);
+  }
+
+
+  /**
+   * Set both of left and right node
+   * @param leftValue
+   * @param rightValue
+   */
+  setBoth(leftValue, rightValue) {
+    this._left = new BinaryTreeNode<T>(leftValue);
+    this._right = new BinaryTreeNode<T>(rightValue);
+    return this;
   }
 
   /**
@@ -38,6 +50,7 @@ export class BinaryTreeNode<T> {
    */
   setLeft(value: T) {
     this._left = new BinaryTreeNode<T>(value);
+    return this._left;
   }
 
   /**
@@ -53,10 +66,11 @@ export class BinaryTreeNode<T> {
    */
   setRight(value: T) {
     this._right = new BinaryTreeNode<T>(value);
+    return this._right;
   }
 
   /**
-   * If append node to current node, if left node doesn't exists, sets left node,
+   * If append node to current node, if left node doesn't exist, sets left node,
    * otherwise sets right node, if both nodes are set doesn't anything
    * @param value
    */
