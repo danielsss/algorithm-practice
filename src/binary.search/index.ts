@@ -36,16 +36,16 @@ class BinarySearch extends Comparator {
     let low = 0;
     let high = nums.length;
 
-    while (low < high) {
-      let mid = Math.floor(low + (high - low) / 2);
+    while (this.lessThan(low, high)) {
+      let mid = this.pivot(low, high);
       const count = evaluate(mid);
-      if (count === mid) {
+      if (this.equal(count, mid)) {
         return mid;
       }
-      if (count < mid) {
+      if (this.lessThan(count, mid)) {
         high = mid;
       }
-      if (count > mid) {
+      if (this.greaterThan(count, mid)) {
         low = mid + 1;
       }
     }
@@ -69,7 +69,7 @@ class BinarySearch extends Comparator {
     let left = 0;
     let right = nums.length - 1;
 
-    while(left <= right) {
+    while(this.lessThanOrEqual(left, right)) {
       let mid = this.pivot(left, right);
       if (this.equal(nums[mid], target)) {
         return mid;
@@ -112,7 +112,7 @@ class BinarySearch extends Comparator {
    * @param arr
    */
   public peakIndexInMountainArray(arr: number[]) {
-    if (arr.length === 0) return -1;
+    if (this.isZero(arr.length)) return -1;
 
     let low = 0;
     let high = arr.length;
@@ -172,12 +172,10 @@ class BinarySearch extends Comparator {
     let high = num;
     let mid = this.pivot(low, high);
 
-    while (low < high) {
-
+    while (this.lessThan(low, high)) {
       if (mid * mid === num) {
         return true;
       }
-
       if (mid * mid > num) {
         high = mid;
       } else if (mid * mid < num) {
@@ -198,7 +196,7 @@ class BinarySearch extends Comparator {
   public nextGreatestLetter(letters: string[], target: string): string {
     let low = 0;
     let high = letters.length;
-    while (low < high) {
+    while (this.lessThan(low, high)) {
       let mid = this.pivot(low, high);
       if (letters[mid] > target) {
         high = mid;
@@ -224,7 +222,7 @@ class BinarySearch extends Comparator {
       let low = 0;
       let high = nums.length;
 
-      while(low < high) {
+      while(this.lessThan(low, high)) {
         let mid = this.pivot(low, high);
         if (nums[mid] === target) {
           if (mid === 0 || nums[mid - 1] !== target) return mid;
@@ -246,7 +244,7 @@ class BinarySearch extends Comparator {
       let low = 0;
       let high = nums.length;
 
-      while(low < high) {
+      while(this.lessThan(low, high)) {
         let mid = this.pivot(low, high);
         if (nums[mid] === target) {
           if (mid === nums.length - 1 || nums[mid + 1] !== target) {
@@ -316,7 +314,7 @@ class BinarySearch extends Comparator {
     if (this.lessThan(nums[low], nums[high - 1])) {
       return nums[low];
     }
-    while (low < high) {
+    while (this.lessThan(low, high)) {
       let mid = this.pivot(low, high);
       if (nums[mid] > nums[mid + 1]) {
         return nums[mid + 1];
@@ -370,7 +368,6 @@ class BinarySearch extends Comparator {
       if (this.equal(matrix[i][j], target)) {
         return true;
       }
-
       if (this.lessThan(matrix[i][j], target)) {
         i++;
       } else {

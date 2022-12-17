@@ -1,9 +1,6 @@
 class Comparator {
   public defaultComparator(a, b) {
-    if (a === b) {
-      return 0
-    }
-
+    if (a === b) { return 0; }
     return a > b ? 1 : -1;
   }
 
@@ -27,8 +24,12 @@ class Comparator {
     return this.defaultComparator(a, b) === 1;
   }
 
-  public lessThan(a, b) {
+  public lessThan(a, b): boolean {
     return this.defaultComparator(a, b) === -1;
+  }
+
+  public isZero(v): boolean {
+    return this.equal(v, 0);
   }
 }
 
