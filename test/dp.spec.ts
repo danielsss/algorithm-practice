@@ -9,7 +9,7 @@ import Robber from '../src/dp/robber';
 
 describe('- Dynamic Programming Algorithms Unit Test', function() {
 
-  it('# Stairs climbing calculation', done => {
+  it('# 746. Min Cost Climbing Stairs', done => {
     const stairs = new Stairs();
     expect(stairs.minCostClimbingV1([10, 15, 20])).to.eq(15);
     expect(stairs.minCostClimbingV1([1,100,1,1,1,100,1,1,100,1])).to.eq(6);
@@ -19,7 +19,7 @@ describe('- Dynamic Programming Algorithms Unit Test', function() {
     done(null);
   });
 
-  it('# Fibonacci Sequence', done => {
+  it('# 509. Fibonacci Number', done => {
     const fibonacci = new Fibonacci();
     expect(fibonacci.iteration(0)).to.eq(0);
     expect(fibonacci.iteration(1)).to.eq(1);
@@ -37,7 +37,7 @@ describe('- Dynamic Programming Algorithms Unit Test', function() {
     done(null);
   });
 
-  it('# Coin Change', done => {
+  it('# 322. Coin Change', done => {
     const coinChange = new CoinChange();
     expect(coinChange.recursive([1,2,5], 11)).to.eq(3);
     coinChange.clean();
@@ -79,7 +79,7 @@ describe('- Dynamic Programming Algorithms Unit Test', function() {
     done(null);
   });
 
-  it.only('# 337. House Robber III', done => {
+  it('# 337. House Robber III', done => {
     const rob = new Robber();
     const tree = new BinaryTree(3);
     tree.getRoot().setLeft(2).setRight(3);

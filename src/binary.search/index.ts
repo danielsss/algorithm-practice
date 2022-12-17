@@ -27,12 +27,45 @@ class BinarySearchAssistance extends Comparator {
 
 
 class BinarySearch extends Comparator {
+
+  /**
+   * 1608. Special Array With X Elements Greater Than or Equal X
+   * @param nums
+   */
+  public specialSearch(nums: number[]): number {
+    let low = 0;
+    let high = nums.length;
+
+    while (low < high) {
+      let mid = Math.floor(low + (high - low) / 2);
+      const count = evaluate(mid);
+      if (count === mid) {
+        return mid;
+      }
+      if (count < mid) {
+        high = mid;
+      }
+      if (count > mid) {
+        low = mid + 1;
+      }
+    }
+
+    function evaluate(min: number) {
+      return nums.reduce((accumulate, cur) => {
+        if (cur >= min) return accumulate + 1;
+        return accumulate;
+      }, 0);
+    }
+
+    return evaluate(low) === low ? low : -1;
+  }
+
   /**
    * 704. Binary Search
    * @param nums
    * @param target
    */
-  searchIndex(nums: number[], target: number) {
+  public searchIndex(nums: number[], target: number) {
     let left = 0;
     let right = nums.length - 1;
 
@@ -55,7 +88,7 @@ class BinarySearch extends Comparator {
    * @param n
    * @param guessNumber
    */
-  guessNumber(n: number, guessNumber: number): number {
+  public  guessNumber(n: number, guessNumber: number): number {
     let low = 0;
     let high = n;
     let pivot = this.pivot(low, high);
@@ -78,7 +111,7 @@ class BinarySearch extends Comparator {
    * 852. Peak Index in a Mountain Array
    * @param arr
    */
-  peakIndexInMountainArray(arr: number[]) {
+  public peakIndexInMountainArray(arr: number[]) {
     if (arr.length === 0) return -1;
 
     let low = 0;
@@ -110,7 +143,7 @@ class BinarySearch extends Comparator {
    * @param arr
    * @param target
    */
-  searchInsertPosition(arr: number[], target: number) {
+  public searchInsertPosition(arr: number[], target: number) {
     let low = 0;
     let high = arr.length;
 
@@ -134,7 +167,7 @@ class BinarySearch extends Comparator {
    * 367. Valid Perfect Square
    * @param num
    */
-  isPerfectSquare(num: number): boolean {
+  public isPerfectSquare(num: number): boolean {
     let low = 0;
     let high = num;
     let mid = this.pivot(low, high);
@@ -162,7 +195,7 @@ class BinarySearch extends Comparator {
    * @param letters
    * @param target
    */
-  nextGreatestLetter(letters: string[], target: string): string {
+  public nextGreatestLetter(letters: string[], target: string): string {
     let low = 0;
     let high = letters.length;
     while (low < high) {
@@ -186,7 +219,7 @@ class BinarySearch extends Comparator {
    *
    * [1,2,5,7,7,   8,8,8,   10]
    */
-  searchRange(nums: number[], target: number): number[] {
+  public searchRange(nums: number[], target: number): number[] {
     const left = () => {
       let low = 0;
       let high = nums.length;
@@ -306,7 +339,7 @@ class BinarySearch extends Comparator {
    * 633. Sum of Square Numbers
    * @param c
    */
-  judgeSquareSum(c: number): boolean {
+  public judgeSquareSum(c: number): boolean {
     let low = 0;
     let high = Math.floor(Math.sqrt(c));
 

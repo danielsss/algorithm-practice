@@ -101,4 +101,13 @@ describe('- Binary Search Unit Test', function () {
     expect(bs.searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)).to.be.false;
     done(null);
   });
+
+
+  it('# 1608. Special Array With X Elements Greater Than or Equal X', done => {
+    const bs = new BinarySearch();
+    expect(bs.specialSearch([3, 5])).to.eq(2);
+    expect(bs.specialSearch([0, 4, 3, 4, 0])).to.eq(3);
+    expect(bs.specialSearch([0, 0])).to.eq(-1);
+    done(null);
+  });
 });

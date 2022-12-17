@@ -4,7 +4,7 @@
 class Iterable {
 
   /**
-   * Making your objects are to be iterable
+   * Making your objects are iterable
    *
    * @param { Record } orig
    */
