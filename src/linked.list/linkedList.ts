@@ -46,7 +46,7 @@ export const traverseRecursively = function (head: ListNode, container = []) {
   return container;
 }
 
-export const generateLinkedList = function(arr: unknown[]): ListNode | null {
+export const generateLinkedList = function(arr: unknown[], circle: boolean = false): ListNode | null {
   let head = null;
   if (!arr || arr.length <= 0) {
     return null;
@@ -62,6 +62,10 @@ export const generateLinkedList = function(arr: unknown[]): ListNode | null {
 
     cursor.next = new ListNode(arr[i]);
     cursor = cursor.next;
+  }
+  // Make a circle linked list
+  if (circle) {
+    cursor.next = head;
   }
 
   return head;

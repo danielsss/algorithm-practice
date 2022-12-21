@@ -1,13 +1,12 @@
 import { describe, it } from 'mocha';
-import { concrete, generateLinkedList, ListNode, traverse, traverseRecursively } from '../src/linked.list/linkedList';
+import { concrete, generateLinkedList, ListNode, traverse } from '../src/linked.list/linkedList';
 import { expect } from 'chai';
 import { partition } from '../src/linked.list/partition';
 import { middleNode } from '../src/linked.list/middleNode';
 import { getIntersectionNode, getIntersectionNodeVersion2 } from '../src/linked.list/intersection';
-import { mergeTwoLists } from '../src/linked.list/mergeTwoSortedList';
 import { removeDuplicate } from '../src/linked.list/removeDuplicate';
-import { reverse } from '../src/linked.list/reverse';
 
+import LinkedList from '../src/linked.list';
 import Swap from '../src/linked.list/swap';
 
 describe('- Linked List Algorithms Unit Test', function() {
@@ -83,10 +82,11 @@ describe('- Linked List Algorithms Unit Test', function() {
     done(null);
   });
 
-  it('# Merge Two Lists', done => {
+  it('# 21. Merge Two Sorted Lists', done => {
+    const algorithm = new LinkedList();
     const l1 = generateLinkedList([1, 2, 3, 3, 4, 5, 8]);
     const l2 = generateLinkedList([2, 4, 6, 7, 8]);
-    const v = traverse<number>(mergeTwoLists(l1, l2));
+    const v = traverse<number>(algorithm.mergeTwoLists(l1, l2));
     expect(v).to.have.members([1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8, 8]);
     done(null);
   });
@@ -98,17 +98,18 @@ describe('- Linked List Algorithms Unit Test', function() {
   });
 
 
-  it('# Traverse Recursively', done => {
+  it('# 206. Reverse Linked List recursively', done => {
+    const algorithm = new LinkedList();
     const orig = [1, 2, 3, 4, 5];
     const head = generateLinkedList(orig);
-    expect(traverseRecursively(head)).to.have.ordered.members(orig);
+    expect(traverse<number>(algorithm.reverse(head))).to.have.ordered.members(orig.reverse());
     done(null);
   });
 
-  it('# Reverse ', done => {
-    const orig = [1, 2, 3, 4, 5];
-    const head = generateLinkedList(orig);
-    expect(reverse(head)).to.have.ordered.members(orig.reverse());
+  it('# 141. Linked List Cycle', done => {
+    const algorithm = new LinkedList();
+    const ls = generateLinkedList([3,2,0,-4], true);
+    expect(algorithm.hasCircle(ls)).to.be.true;
     done(null);
   });
 });
