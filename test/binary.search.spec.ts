@@ -110,4 +110,13 @@ describe('- Binary Search Unit Test', function () {
     expect(bs.specialSearch([0, 0])).to.eq(-1);
     done(null);
   });
+
+  it('# 1855. Maximum Distance Between a Pair of Values', done => {
+    const bs = new BinarySearch();
+    expect(bs.maxDistance([55,30,5,4,2], [100,20,10,10,5])).to.eq(2);
+    expect(bs.maxDistance([2,2,2], [10,10,1])).to.eq(1);
+    expect(bs.maxDistance([30,29,19,5], [25,25,25,25,25])).to.eq(2);
+
+    done(null);
+  });
 });

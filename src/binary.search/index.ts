@@ -378,6 +378,27 @@ class BinarySearch extends Comparator {
     return false;
   };
 
+
+  /**
+   * 1855. Maximum Distance Between a Pair of Values
+   * @param nums1
+   * @param nums2
+   */
+  public maxDistance(nums1: number[], nums2: number[]): number {
+    let ans = 0; let i = 0; let j = 0;
+
+    while(i < nums1.length && j < nums2.length) {
+      if (nums1[i] <= nums2[j]) {
+        ans = Math.max(ans, j - i);
+        j++;
+      } else {
+        i++;
+      }
+    }
+
+    return ans;
+  }
+
   protected pivot(low: number, high: number) {
     if (isNaN(low) || isNaN(high)) {
       throw new Error('low and high must be numbers');
