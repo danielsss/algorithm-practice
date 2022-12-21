@@ -5,6 +5,8 @@ class LinkedList extends Comparator {
 
   /**
    * 206. Reverse Linked List
+   *
+   * The idea is from https://labuladong.github.io/algo/2/19/19/
    * @param head
    */
   public reverse(head: ListNode): ListNode | null {
