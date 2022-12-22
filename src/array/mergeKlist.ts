@@ -1,4 +1,4 @@
-import { ListNode } from '../linked.list/linkedList';
+import { ListNode } from '../linkedList/linkedList';
 import LinkedListMinHeap from '../heap/linkedListMinHeap';
 
 

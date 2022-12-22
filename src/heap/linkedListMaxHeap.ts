@@ -1,5 +1,5 @@
 import Heap from './heap';
-import { ListNode } from '../linked.list/linkedList';
+import { ListNode } from '../linkedList/linkedList';
 
 
 class LinkedListMaxHeap extends Heap<ListNode> {

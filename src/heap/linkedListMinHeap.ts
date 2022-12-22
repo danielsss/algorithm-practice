@@ -1,5 +1,5 @@
 import Heap from './heap';
-import { ListNode } from '../linked.list/linkedList';
+import { ListNode } from '../linkedList/linkedList';
 
 
 class LinkedListMinHeap extends Heap<ListNode> {

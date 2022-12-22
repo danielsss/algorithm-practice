@@ -1,7 +1,7 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { ArrayUtils } from '../src/utils';
-import { generateLinkedList, traverse } from '../src/linked.list/linkedList';
+import { generateLinkedList, traverse } from '../src/linkedList/linkedList';
 import BubbleSort from '../src/array/bubbleSort';
 import MergeSort from '../src/array/MergeSort';
 import Material from '../src/array/material';

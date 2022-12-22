@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import BinarySearch from '../src/binary.search';
+import BinarySearch from '../src/binarySearch';
 import Material from '../src/array/material';
 
 

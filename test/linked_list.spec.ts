@@ -1,13 +1,13 @@
 import { describe, it } from 'mocha';
-import { concrete, generateLinkedList, ListNode, traverse } from '../src/linked.list/linkedList';
+import { concrete, generateLinkedList, ListNode, traverse } from '../src/linkedList/linkedList';
 import { expect } from 'chai';
-import { partition } from '../src/linked.list/partition';
-import { middleNode } from '../src/linked.list/middleNode';
-import { getIntersectionNode, getIntersectionNodeVersion2 } from '../src/linked.list/intersection';
-import { removeDuplicate } from '../src/linked.list/removeDuplicate';
+import { partition } from '../src/linkedList/partition';
+import { middleNode } from '../src/linkedList/middleNode';
+import { getIntersectionNode, getIntersectionNodeVersion2 } from '../src/linkedList/intersection';
+import { removeDuplicate } from '../src/linkedList/removeDuplicate';
 
-import LinkedList from '../src/linked.list';
-import Swap from '../src/linked.list/swap';
+import LinkedList from '../src/linkedList';
+import Swap from '../src/linkedList/swap';
 
 describe('- Linked List Algorithms Unit Test', function() {
 
