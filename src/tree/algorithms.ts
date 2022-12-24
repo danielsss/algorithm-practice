@@ -35,7 +35,7 @@ class Algorithms extends Comparator  {
   public preOrder(root: TreeNode<number>) {
     let res = [];
     const traverse = (root: TreeNode<number>) => {
-      if (!root) return [];
+      if (this.equal(root, null)) return [];
       res.push(root.getValue());
       traverse(root.getLeft());
       traverse(root.getRight());
@@ -51,7 +51,7 @@ class Algorithms extends Comparator  {
   public inOrder(root: TreeNode<number>) {
     let res = [];
     const traverse = (root: TreeNode<number>) => {
-      if (!root) return [];
+      if (this.equal(root, null)) return [];
       traverse(root.getLeft());
       res.push(root.getValue());
       traverse(root.getRight());
@@ -67,7 +67,7 @@ class Algorithms extends Comparator  {
   public postOrder(root: TreeNode<number>) {
     let res = [];
     const traverse = (root: TreeNode<number>) => {
-      if (!root) return [];
+      if (this.equal(root, null)) return [];
       traverse(root.getLeft());
       traverse(root.getRight());
       res.push(root.getValue());
@@ -116,13 +116,13 @@ class Algorithms extends Comparator  {
    * @param root
    */
   public invert(root: TreeNode<number>): TreeNode<number> {
-    traverse(root);
-    function traverse(root: TreeNode<number>) {
-      if (!root) { return; }
+    const traverse = (root: TreeNode<number>) => {
+      if (this.equal(root, null)) { return; }
       root.swap(root.getLeft(), root.getRight());
       traverse(root.getLeft());
       traverse(root.getRight());
     }
+    traverse(root);
     return root;
   }
 }
