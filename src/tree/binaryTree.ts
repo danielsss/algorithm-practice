@@ -71,26 +71,24 @@ export class BinaryTree<T> {
 
 
 /**
- * Creating a binary tree and it looks like below:<br>
+ * Creating a binary tree, and it looks like below:<br>
  * <br>
  * -                        (1)<br>
  * -                      /     \<br>
  * -                    (2)       (5)<br>
- * -                  /    \      /<br>
- * -                (3)    (4)  (6)<br>
- * -                            /<br>
- * -                          (9)<br>
+ * -                  /    \      /  \<br>
+ * -                (3)    (4)  (6)   (7)<br>
+ * -                                    \ <br>
+ * -                                    (9)<br>
  */
 export const createBinaryTree = function() {
-
   const binaryTree = new BinaryTree<number>(1);
   binaryTree.getRoot().setLeft(2);
   binaryTree.findNode(2).setLeft(3);
   binaryTree.findNode(2).setRight(4);
   binaryTree.getRoot().setRight(5);
   binaryTree.findNode(5).setLeft(6);
-  binaryTree.findNode(5).setRight(9);
-  binaryTree.findNode(6).setLeft(7);
-
+  binaryTree.findNode(5).setRight(7);
+  binaryTree.findNode(7).setRight(9);
   return binaryTree.getRoot();
 }
