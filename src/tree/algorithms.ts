@@ -111,6 +111,10 @@ class Algorithms extends Comparator  {
       this.hasSumPath(root.getRight(), target - root.getValue());
   }
 
+  /**
+   * 226. Invert Binary Tree
+   * @param root
+   */
   public invert(root: TreeNode<number>): TreeNode<number> {
     traverse(root);
     function traverse(root: TreeNode<number>) {
