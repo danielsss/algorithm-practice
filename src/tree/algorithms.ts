@@ -95,6 +95,32 @@ class Algorithms extends Comparator  {
 
     return res;
   }
+
+  /**
+   * 112. Path Sum
+   * @param root
+   * @param target
+   */
+  public hasSumPath(root: TreeNode<number>, target: number): boolean {
+    if (!root) { return false; }
+    if (
+      this.equal(root.getLeft(), root.getRight()) &&
+      this.equal(root.getValue(), target)
+    ) { return true; }
+    return this.hasSumPath(root.getLeft(), target - root.getValue()) ||
+      this.hasSumPath(root.getRight(), target - root.getValue());
+  }
+
+  public invert(root: TreeNode<number>): TreeNode<number> {
+    traverse(root);
+    function traverse(root: TreeNode<number>) {
+      if (!root) { return; }
+      root.swap(root.getLeft(), root.getRight());
+      traverse(root.getLeft());
+      traverse(root.getRight());
+    }
+    return root;
+  }
 }
 
 

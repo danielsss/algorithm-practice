@@ -69,6 +69,11 @@ export class TreeNode<T> {
     return this._right;
   }
 
+  swap(left, right) {
+    this._left = right;
+    this._right = left;
+  }
+
   /**
    * If append node to current node, if left node doesn't exist, sets left node,
    * otherwise sets right node, if both nodes are set doesn't anything

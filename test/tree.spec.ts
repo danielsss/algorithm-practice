@@ -39,4 +39,17 @@ describe('- Tree Algorithm Test', function () {
     expect(tree.levelOrder(bt)).to.have.ordered.members(lo);
     done(null);
   });
+
+  it('# 112. Path Sum', done => {
+    expect(tree.hasSumPath(bt, 22)).to.be.true;
+    expect(tree.hasSumPath(bt, 23)).to.be.false;
+    done(null);
+  });
+
+  it('# 226. Invert Binary Tree', done => {
+    const inverted = tree.invert(bt);
+    const res = tree.levelOrder(inverted);
+    expect(res).to.have.ordered.members([1,5,2,7,6,4,3,9]);
+    done(null);
+  });
 });
