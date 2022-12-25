@@ -125,6 +125,25 @@ class Algorithms extends Comparator  {
     traverse(root);
     return root;
   }
+
+
+  /**
+   * 700. Search in a Binary Search Tree
+   * @param root
+   * @param target
+   */
+  public searchInBST(root: TreeNode<number>, target: number): TreeNode<number> {
+    if (this.equal(root, null)) return null;
+
+    if (root.getValue() > target) {
+      return this.searchInBST(root.getLeft(), target);
+    }
+    if (root.getValue() < target) {
+      return this.searchInBST(root.getRight(), target);
+    }
+
+    return root;
+  }
 }
 
 

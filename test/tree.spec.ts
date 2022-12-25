@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import { createBinaryTree } from '../src/tree/binaryTree';
+import { createBinaryTree, createBinarySearchTree } from '../src/tree/binaryTree';
 import Algorithms from '../src/tree/algorithms';
 
 
@@ -50,6 +50,21 @@ describe('- Tree Algorithm Test', function () {
     const inverted = tree.invert(bt);
     const res = tree.levelOrder(inverted);
     expect(res).to.have.ordered.members([1,5,2,7,6,4,3,9]);
+    done(null);
+  });
+
+  it('# 700. Search in a Binary Search Tree', done => {
+    const bst = createBinarySearchTree();
+    /**
+     * bst looks like below
+     * <br>
+     * -                        (4)<br>
+     * -                      /    \<br>
+     * -                    (2)     (7)<br>
+     * -                  /    \  <br>
+     * -                (1)    (3)<br>
+     */
+    expect(tree.searchInBST(bst.getRoot(), 2)).to.eq(bst.getRoot().getLeft());
     done(null);
   });
 });

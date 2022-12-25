@@ -92,3 +92,22 @@ export const createBinaryTree = function() {
   binaryTree.findNode(7).setRight(9);
   return binaryTree.getRoot();
 }
+
+
+/**
+ * Creating a binary search tree, and it looks like below:<br>
+ * <br>
+ * -                        (4)<br>
+ * -                      /    \<br>
+ * -                    (2)     (7)<br>
+ * -                  /    \  <br>
+ * -                (1)    (3)<br>
+ */
+export const createBinarySearchTree = function() {
+  const bst = new BinaryTree(4);
+  bst.getRoot().setLeft(2);
+  bst.getRoot().setRight(7);
+  bst.findNode(2).setRight(3);
+  bst.findNode(2).setLeft(1);
+  return bst;
+}
