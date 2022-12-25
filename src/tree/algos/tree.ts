@@ -1,8 +1,8 @@
-import { TreeNode } from './treeNode';
-import { Timer } from '../ioc/timer';
-import { Comparator } from '../utils';
+import { TreeNode } from '../treeNode';
+import { Timer } from '../../ioc/timer';
+import { Comparator } from '../../utils';
 
-class Algorithms extends Comparator  {
+class Tree extends Comparator  {
 
   @Timer('test()')
   public test() {
@@ -127,44 +127,8 @@ class Algorithms extends Comparator  {
   }
 
 
-  /**
-   * 700. Search in a Binary Search Tree
-   * @param root
-   * @param target
-   */
-  public searchInBST(root: TreeNode<number>, target: number): TreeNode<number> {
-    if (this.equal(root, null)) return null;
 
-    if (root.getValue() > target) {
-      return this.searchInBST(root.getLeft(), target);
-    }
-    if (root.getValue() < target) {
-      return this.searchInBST(root.getRight(), target);
-    }
-
-    return root;
-  }
-
-  /**
-   * 701. Insert into a Binary Search Tree
-   * @param root
-   * @param val
-   */
-  public insertBST(root: TreeNode<number>, val: number): TreeNode<number> {
-    if (this.equal(root, null)) {
-      return new TreeNode<number>(val);
-    }
-
-    if (this.greaterThan(root.value, val)) {
-      root.left = this.insertBST(root.getLeft(), val);
-    }
-    if (this.lessThan(root.value, val)) {
-      root.right = this.insertBST(root.getRight(), val);
-    }
-
-    return root;
-  }
 }
 
 
-export default Algorithms;
+export default Tree;

@@ -7,7 +7,7 @@ import Fibonacci  from '../src/dp/fibonacci';
 import DynamicProgramming from '../src/dp';
 import Robber from '../src/dp/robber';
 
-describe('- Dynamic Programming Algorithms Unit Test', function() {
+describe('- Dynamic Programming Tree Unit Test', function() {
 
   it('# 746. Min Cost Climbing Stairs', done => {
     const stairs = new Stairs();

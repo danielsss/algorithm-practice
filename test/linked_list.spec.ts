@@ -9,7 +9,7 @@ import { removeDuplicate } from '../src/linkedList/removeDuplicate';
 import LinkedList from '../src/linkedList';
 import Swap from '../src/linkedList/swap';
 
-describe('- Linked List Algorithms Unit Test', function() {
+describe('- Linked List Tree Unit Test', function() {
 
   it('# FindMedian tool GenerateLinkedList()', done => {
     const originalArray = [1, 2, 3, 4, 5];

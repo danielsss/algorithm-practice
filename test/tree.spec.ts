@@ -1,11 +1,13 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { createBinaryTree, createBinarySearchTree } from '../src/tree/binaryTree';
-import Algorithms from '../src/tree/algorithms';
+import Tree from '../src/tree/algos/tree';
+import BinarySearchTree from '../src/tree/algos/binary_search_tree';
 
 
 describe('- Tree Algorithm Test', function () {
-  const tree = new Algorithms();
+  const tree = new Tree();
+  const binarySearchTree = new BinarySearchTree();
 
   const bst = createBinarySearchTree();
   /**
@@ -66,13 +68,13 @@ describe('- Tree Algorithm Test', function () {
   });
 
   it('# 700. Search in a Binary Search Tree', done => {
-    expect(tree.searchInBST(bst.getRoot(), 2)).to.eq(bst.getRoot().getLeft());
+    expect(binarySearchTree.searchInBST(bst.getRoot(), 2)).to.eq(bst.getRoot().getLeft());
     done(null);
   });
 
   it('# 701. Insert into a Binary Search Tree', done => {
     // The "5" will be extended following the element of "7"
-    const extended = tree.insertBST(bst.getRoot(), 5);
+    const extended = binarySearchTree.insertBST(bst.getRoot(), 5);
     expect(tree.hasSumPath(extended, 16/* 4 + 7 + 5 = 16 */)).to.be.true;
     done(null);
   });

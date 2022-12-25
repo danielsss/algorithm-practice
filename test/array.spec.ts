@@ -13,7 +13,7 @@ import Contain from '../src/array/contain';
 import Stock from '../src/dp/stock';
 
 
-describe('- Array Algorithms Unit Test', function() {
+describe('- Array Tree Unit Test', function() {
 
   const utils = new ArrayUtils();
   it('# Remove duplicates', done => {
