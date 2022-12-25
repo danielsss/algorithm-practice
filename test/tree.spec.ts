@@ -6,6 +6,18 @@ import Algorithms from '../src/tree/algorithms';
 
 describe('- Tree Algorithm Test', function () {
   const tree = new Algorithms();
+
+  const bst = createBinarySearchTree();
+  /**
+   * bst looks like below
+   * <br>
+   * -                        (4)<br>
+   * -                      /    \<br>
+   * -                    (2)     (7)<br>
+   * -                  /    \  <br>
+   * -                (1)    (3)<br>
+   */
+
   const bt = createBinaryTree();
   // root -> left -> right
   const preOrder = [1,2,3,4,5,6,7,9];
@@ -54,17 +66,14 @@ describe('- Tree Algorithm Test', function () {
   });
 
   it('# 700. Search in a Binary Search Tree', done => {
-    const bst = createBinarySearchTree();
-    /**
-     * bst looks like below
-     * <br>
-     * -                        (4)<br>
-     * -                      /    \<br>
-     * -                    (2)     (7)<br>
-     * -                  /    \  <br>
-     * -                (1)    (3)<br>
-     */
     expect(tree.searchInBST(bst.getRoot(), 2)).to.eq(bst.getRoot().getLeft());
+    done(null);
+  });
+
+  it('# 701. Insert into a Binary Search Tree', done => {
+    // The "5" will be extended following the element of "7"
+    const extended = tree.insertBST(bst.getRoot(), 5);
+    expect(tree.hasSumPath(extended, 16/* 4 + 7 + 5 = 16 */)).to.be.true;
     done(null);
   });
 });

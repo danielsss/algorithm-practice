@@ -1,5 +1,4 @@
 export class TreeNode<T> {
-
   private _value:  T;
   private _left:   TreeNode<T>;
   private _right:  TreeNode<T>;
@@ -10,16 +9,20 @@ export class TreeNode<T> {
     this.setValue(value);
   }
 
+  public set left(node: TreeNode<T>) {
+    this._left = node;
+  }
 
-  /**
-   * Set both of left and right node
-   * @param leftValue
-   * @param rightValue
-   */
-  setBoth(leftValue, rightValue) {
-    this._left = new TreeNode<T>(leftValue);
-    this._right = new TreeNode<T>(rightValue);
-    return this;
+  public set right(node: TreeNode<T>) {
+    this._right = node;
+  }
+
+  public get value() {
+    return this._value;
+  }
+
+  public get val() {
+    return this._value;
   }
 
   /**
@@ -73,18 +76,4 @@ export class TreeNode<T> {
     this._left = right;
     this._right = left;
   }
-
-  /**
-   * If append node to current node, if left node doesn't exist, sets left node,
-   * otherwise sets right node, if both nodes are set doesn't anything
-   * @param value
-   */
-  append(value: T) {
-    if (this.getLeft() === null) {
-      this.setLeft(value);
-    } else if (this.getRight() === null) {
-      this.setRight(value);
-    }
-  }
-
 }

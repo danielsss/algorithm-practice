@@ -144,6 +144,26 @@ class Algorithms extends Comparator  {
 
     return root;
   }
+
+  /**
+   * 701. Insert into a Binary Search Tree
+   * @param root
+   * @param val
+   */
+  public insertBST(root: TreeNode<number>, val: number): TreeNode<number> {
+    if (this.equal(root, null)) {
+      return new TreeNode<number>(val);
+    }
+
+    if (this.greaterThan(root.value, val)) {
+      root.left = this.insertBST(root.getLeft(), val);
+    }
+    if (this.lessThan(root.value, val)) {
+      root.right = this.insertBST(root.getRight(), val);
+    }
+
+    return root;
+  }
 }
 
 
