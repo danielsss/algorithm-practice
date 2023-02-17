@@ -2,6 +2,19 @@ import { Comparator } from '../../utils';
 import { TreeNode } from '../treeNode';
 class BinarySearchTree extends Comparator {
 
+  /**
+   * 98. Validate Binary Search Tree
+   * @param root
+   */
+  public isValidBST(root: TreeNode<number>): boolean {
+    const _isValid = (root: TreeNode<number>, min: TreeNode<number>, max: TreeNode<number>): boolean => {
+      if (this.equal(root, null)) return true;
+      if (min !== null && root.val <= min.val) return false;
+      if (max !== null && root.val >= max.val) return false;
+      return _isValid(root.left, min, root) && _isValid(root.right, root, max);
+    }
+    return _isValid(root, null, null);
+  }
 
   /**
    * 700. Search in a Binary Search Tree

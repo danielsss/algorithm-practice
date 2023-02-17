@@ -17,6 +17,14 @@ export class TreeNode<T> {
     this._right = node;
   }
 
+  public get left() {
+    return this._left;
+  }
+
+  public get right() {
+    return this._right;
+  }
+
   public get value() {
     return this._value;
   }

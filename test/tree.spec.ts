@@ -78,4 +78,9 @@ describe('- Tree Algorithm Test', function () {
     expect(tree.hasSumPath(extended, 16/* 4 + 7 + 5 = 16 */)).to.be.true;
     done(null);
   });
+
+  it('# 98. Validate Binary Search Tree', done => {
+    expect(binarySearchTree.isValidBST(bst.root)).to.be.true;
+    done(null);
+  });
 });

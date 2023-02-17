@@ -8,6 +8,10 @@ export class BinaryTree<T> {
     this._root = new TreeNode(value);
   }
 
+  public get root(): TreeNode<T> {
+    return this._root;
+  }
+
   /**
    * Returns 'root' node
    */
